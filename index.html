@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Wachopify - Audiolibros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tipografía Montserrat -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+
+    <!-- Configuración de Tailwind con tu @theme -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wacho: {
+                100: "#e5e8e3",
+                200: "#a4b3a2",
+                300: "#5a7059",
+                400: "#2e3b2e",
+                500: "#1f291f",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-wacho-100 text-wacho-500">
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 w-full bg-wacho-500 text-wacho-100 shadow-md z-50"
+    >
+      <nav
+        class="max-w-6xl mx-auto flex items-center justify-between py-4 px-6"
+      >
+        <div class="font-bold text-xl">Wachopify</div>
+        <ul class="hidden md:flex space-x-6">
+          <li>
+            <a href="#inicio" class="hover:text-wacho-200">Inicio</a>
+          </li>
+          <li>
+            <a href="#caracteristicas" class="hover:text-wacho-200"
+              >Características</a
+            >
+          </li>
+          <li>
+            <a href="#precios" class="hover:text-wacho-200"
+              >Precios</a
+            >
+          </li>
+          <li>
+            <a href="#contacto" class="hover:text-wacho-200"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section
+      id="inicio"
+      class="min-h-screen flex items-center justify-center bg-wacho-100 pt-20"
+    >
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6"
+      >
+        <div class="flex-1">
+          <h1
+            class="text-4xl md:text-5xl font-bold mb-4 text-wacho-500"
+          >
+            Audiolibros para
+            <span class="text-wacho-300">ascender</span>
+          </h1>
+          <p class="mb-6 text-lg text-wacho-400">
+            Wachopify te da acceso a bibliografías oficiales en
+            formato de audiolibro, para que estudies en cualquier
+            lugar y a tu ritmo.
+          </p>
+          <div class="flex gap-4">
+            <!-- App Store -->
+            <a
+              href="#"
+              class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-2"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                class="h-6 w-6 invert"
+                alt="Apple"
+              />
+              <span class="text-sm font-medium">App Store</span>
+            </a>
+            <!-- Google Play -->
+            <a
+              href="#"
+              class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-2"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                class="h-6"
+                alt="Google Play"
+              />
+              <span class="text-sm font-medium">Google Play</span>
+            </a>
+          </div>
+        </div>
+        <div class="flex-1 text-center">
+          <img
+            src="https://dummyimage.com/300x600/5a7059/ffffff&text=Mockup+App"
+            alt="Mockup App"
+            class="rounded-xl shadow-lg mx-auto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Características -->
+    <section
+      id="caracteristicas"
+      class="min-h-screen flex items-center justify-center bg-wacho-200"
+    >
+      <div class="max-w-6xl mx-auto text-center px-6">
+        <h2 class="text-3xl font-bold mb-10 text-wacho-500">
+          Características
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-6 bg-white rounded-xl shadow-md">
+            🎧
+            <h3 class="font-bold mt-2">Audiolibros curados</h3>
+            <p>Bibliografía oficial por grado militar.</p>
+          </div>
+          <div class="p-6 bg-white rounded-xl shadow-md">
+            📚
+            <h3 class="font-bold mt-2">Catálogo completo</h3>
+            <p>Actualizado con las obras más recientes.</p>
+          </div>
+          <div class="p-6 bg-white rounded-xl shadow-md">
+            📱
+            <h3 class="font-bold mt-2">Acceso offline</h3>
+            <p>Estudia sin depender de internet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Precios -->
+    <section
+      id="precios"
+      class="min-h-screen flex items-center justify-center bg-wacho-100"
+    >
+      <div class="max-w-6xl mx-auto text-center px-6">
+        <h2 class="text-3xl font-bold mb-10 text-wacho-500">
+          Planes de suscripción
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-8 bg-white rounded-xl shadow-md">
+            <h3 class="font-bold text-xl">Mensual</h3>
+            <p class="text-4xl font-bold my-4">$99.90 MXN</p>
+            <button
+              class="bg-wacho-400 text-white rounded-lg px-6 py-3 hover:bg-wacho-300"
+            >
+              Suscribirme
+            </button>
+          </div>
+          <div class="p-8 bg-white rounded-xl shadow-md">
+            <h3 class="font-bold text-xl">Anual</h3>
+            <p class="text-4xl font-bold my-4">$1099.90 MXN</p>
+            <button
+              class="bg-wacho-400 text-white rounded-lg px-6 py-3 hover:bg-wacho-300"
+            >
+              Ahorrar ahora
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section
+      id="contacto"
+      class="min-h-screen flex items-center justify-center bg-wacho-200"
+    >
+      <div class="max-w-6xl mx-auto text-center px-6">
+        <h2 class="text-3xl font-bold mb-6 text-wacho-500">
+          Contacto
+        </h2>
+        <p class="mb-6">
+          ¿Dudas o comentarios? Escríbenos a
+          <a
+            href="mailto:info@wachopify.com"
+            class="text-wacho-400 font-bold hover:underline"
+          >
+            info@wachopify.com
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-wacho-500 text-wacho-100 py-6 text-center">
+      <p>© 2025 Wachopify. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
