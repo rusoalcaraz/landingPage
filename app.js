@@ -18,11 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0");
-            entry.target.classList.remove("opacity-0", "translate-y-8");
+            entry.target.classList.add(
+              "opacity-100",
+              "translate-y-0"
+            );
+            entry.target.classList.remove(
+              "opacity-0",
+              "translate-y-8"
+            );
             // Añadir efecto de rotación para cards
             if (entry.target.closest(".grid")) {
-              entry.target.style.transitionDelay = Math.random() * 0.3 + "s";
+              entry.target.style.transitionDelay =
+                Math.random() * 0.3 + "s";
             }
           }
         });
@@ -64,6 +71,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Inicializar animaciones
   animateOnScroll();
+
+  // Efecto Parallax Mejorado
+  const parallaxElements = document.querySelectorAll(".parallax");
+
+  const applyParallax = () => {
+    parallaxElements.forEach((element) => {
+      // Obtener la sección padre
+      const section = element.closest("section");
+      if (!section) return;
+
+      // Calcular la posición relativa de la sección en la ventana
+      const sectionRect = section.getBoundingClientRect();
+      const sectionTop = sectionRect.top;
+      const sectionHeight = sectionRect.height;
+      const windowHeight = window.innerHeight;
+
+      // Solo aplicar parallax si la sección está visible
+      if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
+        // Calcular el progreso del scroll dentro de la sección
+        const progress =
+          (windowHeight - sectionTop) /
+          (windowHeight + sectionHeight);
+        const speed = parseFloat(element.dataset.speed) || 1;
+
+        // Limitar el rango del movimiento
+        const maxMove = 50; // píxeles máximos de movimiento
+        const movement = Math.max(
+          Math.min(progress * maxMove * (speed - 1), maxMove),
+          -maxMove
+        );
+
+        // Aplicar la transformación con límites
+        element.style.transform = `translate3d(0, ${movement}px, 0)`;
+      }
+    });
+  };
+
+  // Manejar el scroll con throttling para mejor rendimiento
+  let scrollTimeout;
+  window.addEventListener("scroll", () => {
+    if (!scrollTimeout) {
+      scrollTimeout = setTimeout(() => {
+        requestAnimationFrame(applyParallax);
+        scrollTimeout = null;
+      }, 16); // aproximadamente 60fps
+    }
+  });
+
+  // Aplicar parallax inicial
+  applyParallax();
+
+  // Resetear posiciones al recargar o volver a la página
+  window.addEventListener("beforeunload", () => {
+    parallaxElements.forEach((element) => {
+      element.style.transform = "translate3d(0, 0, 0)";
+    });
+  });
 });
 
 // Animación del header

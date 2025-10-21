@@ -70,7 +70,7 @@
             <li>
               <a
                 href="#beneficios"
-                class="menu-link hover:text-wacho-400"
+                class="menu-link block py-2 w-full text-center rounded hover:bg-wacho-100"
                 >Beneficios</a
               >
             </li>
@@ -123,7 +123,7 @@
               fill="currentColor"
             >
               <path
-                d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h16v2H4v-2Z"
+                d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h16v2H4v-2Zm0 5h16v2H4v-2Zm0 5h16v2H4v-2Z"
               />
             </svg>
             <svg
@@ -152,9 +152,9 @@
             </li>
             <li>
               <a
-                href="#caracteristicas"
+                href="#beneficios"
                 class="menu-link block py-2 w-full text-center rounded hover:bg-wacho-100"
-                >Características</a
+                >Beneficios</a
               >
             </li>
             <li>
@@ -192,7 +192,7 @@
         class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 gap-10 pb-24"
       >
         <!-- Columna izquierda: texto -->
-        <div class="flex-1">
+        <div class="flex-1 parallax" data-speed="0.9">
           <span
             class="inline-block px-4 py-1 border rounded-full text-sm text-wacho-400 mb-4"
           >
@@ -202,16 +202,16 @@
             class="text-4xl md:text-5xl font-bold text-wacho-500 mb-4"
           >
             Audiolibros
-            <span class="text-wacho-300">curados</span> para tu
+            <span class="text-wacho-300">a la medida</span> para tu
             ascenso.
           </h1>
           <p class="text-lg text-wacho-400 mb-6">
-            Con Wachopify tienes las bibliografías oficiales para
-            militares, organizadas por grado. Estudia en cualquier
-            lugar, incluso sin internet.
+            Con Wachopify tienes las bibliografías oficiales para la
+            promoción general, organizadas por grado y espacialidad.
+            Estudia en cualquier lugar, incluso sin internet.
           </p>
-          <div class="flex gap-4">
-            <!-- App Store -->
+          <div class="flex gap-4 parallax" data-speed="1.1">
+            <!-- Botones App Store y Google Play -->
             <a
               href="#"
               class="bg-black text-white rounded-lg px-5 py-3 flex items-center gap-2 shadow hover:scale-105 transition"
@@ -238,10 +238,14 @@
           </div>
         </div>
         <!-- Columna derecha: mockup -->
-        <div class="flex-1 flex justify-center relative z-20">
+        <div
+          class="flex-1 flex justify-center relative z-20 parallax"
+          data-speed="1.2"
+        >
           <!-- Glow irregular detrás -->
           <div
-            class="absolute w-[26rem] h-[34rem] bg-wacho-300/80 rounded-[5rem] blur-3xl opacity-70 -rotate-3"
+            class="absolute w-[26rem] h-[34rem] bg-wacho-300/80 rounded-[5rem] blur-3xl opacity-70 -rotate-3 parallax"
+            data-speed="1.4"
           ></div>
           <!-- Teléfono XL con rotación y sombra brutal que “se sale” -->
           <div
@@ -269,24 +273,24 @@
       class="reveal-section relative -mt-24 pt-28 min-h-screen flex items-start justify-center bg-wacho-200"
     >
       <div class="max-w-7xl mx-auto px-6 pb-20 text-center w-full">
-        <!-- Pill -->
-        <span
-          class="inline-block px-4 py-1 border rounded-full text-sm text-wacho-400 mb-4 bg-white/60"
-        >
-          ¿Por qué Wachopify?
-        </span>
-        <!-- Título -->
-        <h2
-          class="reveal text-4xl md:text-5xl font-extrabold text-wacho-500 mb-4"
-        >
-          Beneficios que sí te
-          <span class="text-wacho-300">sirven</span>
-        </h2>
-        <!-- Subtítulo -->
-        <p class="reveal max-w-3xl mx-auto text-wacho-500/80 mb-12">
-          Estudia enfocado, mide tu avance y llega más rápido a tu
-          objetivo. Todo desde tu teléfono.
-        </p>
+        <!-- Título y subtítulo con parallax -->
+        <div class="parallax" data-speed="0.95">
+          <span
+            class="inline-block px-4 py-1 border rounded-full text-sm text-wacho-400 mb-4 bg-white/60"
+          >
+            ¿Por qué Wachopify?
+          </span>
+          <h2
+            class="reveal text-4xl md:text-5xl font-extrabold text-wacho-500 mb-4"
+          >
+            Beneficios que sí te
+            <span class="text-wacho-300">sirven</span>
+          </h2>
+          <p class="reveal max-w-3xl mx-auto text-wacho-500/80 mb-12">
+            Estudia enfocado, mide tu avance y llega más rápido a tu
+            objetivo. Todo desde tu teléfono.
+          </p>
+        </div>
         <!-- Grid de cards estilo "tilted" -->
         <div class="grid md:grid-cols-4 gap-6 md:gap-8 items-end">
           <!-- Card 1 -->
@@ -342,7 +346,7 @@
           </article>
           <!-- Card 3 -->
           <article
-            class="reveal relative p-6 rounded-3xl shadow-xl bg-wacho-70 text-wacho-500 rotate-[0deg] hover:-rotate-1 transition-transform will-change-transform"
+            class="reveal relative p-6 rounded-3xl shadow-xl bg-white/70 text-wacho-500 rotate-[0deg] hover:-rotate-1 transition-transform will-change-transform"
           >
             <!-- Icono: estadísticas -->
             <div
@@ -409,32 +413,38 @@
     <!-- Precios -->
     <section
       id="precios"
-      class="min-h-screen flex items-center justify-center bg-wacho-100"
+      class="min-h-screen flex items-center justify-center bg-wacho-100 py-20 md:py-0"
     >
       <div class="max-w-6xl mx-auto text-center px-6">
-        <h2 class="reveal text-3xl font-bold mb-10 text-wacho-500">
+        <h2
+          class="reveal text-3xl font-bold mb-8 md:mb-10 text-wacho-500 pt-12 md:pt-0"
+        >
           Planes de suscripción
         </h2>
-        <div class="grid md:grid-cols-2 gap-8">
+        <div
+          class="grid md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-0"
+        >
           <!-- Card Mensual -->
-          <div class="p-8 bg-white rounded-xl shadow-md reveal">
+          <div
+            class="p-6 md:p-8 bg-white rounded-xl shadow-md reveal"
+          >
             <h3 class="font-bold text-xl">Mensual</h3>
             <p class="text-4xl font-bold my-4">$99.90 MXN</p>
             <p class="text-sm text-wacho-400 -mt-2">primer mes</p>
-            <p class="text-sm text-wacho-400 line-through">
+            <p class="text-sm text-wacho-400 line-through mb-4">
               después $128.90
             </p>
             <button
-              class="mt-4 bg-wacho-400 text-white rounded-lg px-6 py-3 hover:bg-wacho-300"
+              class="bg-wacho-400 text-white rounded-lg px-6 py-3 hover:bg-wacho-300 transition-colors duration-300"
             >
               Suscribirme
             </button>
           </div>
           <!-- Card Anual -->
           <div
-            class="relative p-8 bg-wacho-200 rounded-xl shadow-2xl border-4 border-yellow-400 reveal"
+            class="relative p-6 md:p-8 bg-wacho-200 rounded-xl shadow-2xl border-4 border-yellow-400 reveal"
           >
-            <!-- Ribon -->
+            <!-- Ribbon -->
             <div
               class="absolute -top-3 right-6 bg-yellow-400 text-wacho-500 text-xs font-bold px-3 py-1 rounded-full shadow"
             >
@@ -445,11 +455,11 @@
               $1,099.90 MXN
             </p>
             <p class="text-sm text-wacho-500 -mt-2">primer año</p>
-            <p class="text-sm text-wacho-500 line-through">
+            <p class="text-sm text-wacho-500 line-through mb-4">
               después $1,299.90
             </p>
             <button
-              class="mt-4 bg-wacho-400 text-white rounded-lg px-6 py-3 font-semibold hover:bg-wacho-300 hover:scale-105 transition-transform shadow-md"
+              class="bg-wacho-400 text-white rounded-lg px-6 py-3 font-semibold hover:bg-wacho-300 hover:scale-105 transition-all duration-300 shadow-md"
             >
               Ahorrar ahora
             </button>
