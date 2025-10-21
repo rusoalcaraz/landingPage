@@ -1,0 +1,13 @@
+{
+  "name": "Wachopify",
+  "short_name": "Wachopify",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#e5e8e3",
+  "theme_color": "#1f291f",
+  "icons": [
+    { "src": "/favicons/favicon-16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "/favicons/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/favicons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
