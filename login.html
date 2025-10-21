@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es-MX" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1"
+    />
+
+    <!-- No indexar login -->
+    <meta
+      name="robots"
+      content="noindex,nofollow,noimageindex,noarchive,nosnippet"
+    />
+    <link
+      rel="canonical"
+      href="https://www.wachopify.com.mx/login.html"
+    />
+    <title>Iniciar sesión — Wachopify</title>
+
+    <!-- Tipografía -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind (misma config y colores que tu landing) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wacho: {
+                100: "#e5e8e3",
+                200: "#a4b3a2",
+                300: "#5a7059",
+                400: "#2e3b2e",
+                500: "#1f291f",
+              },
+            },
+            fontFamily: { sans: ["Montserrat", "sans-serif"] },
+            screens: {
+              sm: "640px",
+              md: "768px",
+              lg: "1024px",
+              xl: "1280px",
+              "2xl": "1536px",
+              custom: "900px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- reCAPTCHA Invisible v2 -->
+    <script
+      src="https://www.google.com/recaptcha/api.js"
+      async
+      defer
+    ></script>
+    <!-- Google Identity Services -->
+    <script
+      src="https://accounts.google.com/gsi/client"
+      async
+      defer
+    ></script>
+  </head>
+
+  <body
+    class="bg-wacho-100 text-wacho-500 font-sans min-h-screen flex items-center justify-center p-6"
+  >
+    <main
+      class="w-full max-w-md bg-white/80 rounded-2xl shadow-xl p-8 border border-wacho-200"
+    >
+      <a href="/" class="inline-flex items-center gap-2 mb-6">
+        <span
+          class="inline-block w-8 h-8 rounded-lg bg-wacho-400"
+        ></span>
+        <span class="font-bold text-wacho-500 text-lg"
+          >Wachopify</span
+        >
+      </a>
+
+      <label
+        for="email"
+        class="block text-sm font-semibold mb-2 text-wacho-500"
+        >Email o nombre de usuario</label
+      >
+      <form
+        id="form-email"
+        class="space-y-4"
+        action="/auth/start"
+        method="POST"
+      >
+        <div class="relative">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="username"
+            required
+            class="w-full rounded-xl border border-wacho-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-wacho-300 placeholder-wacho-200"
+          />
+          <div
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-wacho-300"
+            aria-hidden="true"
+          >
+            🔒
+          </div>
+          <p id="emailHelp" class="hidden text-xs text-red-600 mt-1">
+            Escribe un correo válido.
+          </p>
+        </div>
+
+        <!-- reCAPTCHA invisible -->
+        <div
+          class="g-recaptcha"
+          data-sitekey="RECAPTCHA_SITE_KEY_AQUI"
+          data-size="invisible"
+          data-callback="onRecaptchaSuccessEmail"
+          data-error-callback="onRecaptchaError"
+        ></div>
+
+        <button
+          type="submit"
+          class="w-full rounded-full bg-wacho-400 text-white font-semibold py-3 shadow-[0_6px_0_0_rgba(31,41,31,0.35)] hover:translate-y-[1px] hover:shadow-[0_4px_0_0_rgba(31,41,31,0.35)] transition"
+        >
+          Continuar
+        </button>
+      </form>
+
+      <div class="flex items-center gap-3 my-6">
+        <div class="h-px bg-wacho-200 flex-1"></div>
+        <span class="text-xs text-wacho-300">o</span>
+        <div class="h-px bg-wacho-200 flex-1"></div>
+      </div>
+
+      <!-- Botón de Google (GIS) -->
+      <div
+        id="g_id_onload"
+        data-client_id="TU_CLIENT_ID_DE_GOOGLE.apps.googleusercontent.com"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-callback="onGoogleCredential"
+        data-auto_select="false"
+      ></div>
+      <div class="flex justify-center">
+        <div
+          class="g_id_signin"
+          data-type="standard"
+          data-shape="pill"
+          data-theme="outline"
+          data-text="signin_with"
+          data-size="large"
+          data-logo_alignment="left"
+          data-width="320"
+        ></div>
+      </div>
+
+      <!-- 👇 Agregado: link de registro bajo Google -->
+      <p class="text-center text-sm text-wacho-400 mt-6">
+        ¿No tienes cuenta?
+        <a
+          href="/registro.html"
+          class="text-wacho-300 hover:underline"
+          >Regístrate aquí</a
+        >
+      </p>
+
+      <!-- Paso 2: contraseña (hidden al inicio) -->
+      <form
+        id="form-password"
+        class="space-y-4 hidden"
+        action="/auth/login"
+        method="POST"
+      >
+        <p class="text-sm text-wacho-400">
+          Correo:
+          <span
+            id="emailDisplay"
+            class="font-semibold text-wacho-500"
+          ></span>
+        </p>
+        <input type="hidden" name="email" id="emailHidden" />
+        <div>
+          <label
+            for="password"
+            class="block text-sm font-semibold mb-2 text-wacho-500"
+            >Contraseña</label
+          >
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            class="w-full rounded-xl border border-wacho-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-wacho-300 placeholder-wacho-200"
+          />
+        </div>
+
+        <!-- reCAPTCHA invisible para password -->
+        <div
+          class="g-recaptcha"
+          data-sitekey="RECAPTCHA_SITE_KEY_AQUI"
+          data-size="invisible"
+          data-callback="onRecaptchaSuccessPassword"
+          data-error-callback="onRecaptchaError"
+        ></div>
+
+        <button
+          type="submit"
+          class="w-full rounded-full bg-wacho-400 text-white font-semibold py-3 shadow-[0_6px_0_0_rgba(31,41,31,0.35)] hover:translate-y-[1px] hover:shadow-[0_4px_0_0_rgba(31,41,31,0.35)] transition"
+        >
+          Entrar
+        </button>
+
+        <p class="text-center text-sm text-wacho-400 mt-2">
+          ¿No tienes cuenta?
+          <a
+            href="/registro.html"
+            class="text-wacho-300 hover:underline"
+            >Regístrate</a
+          >
+        </p>
+      </form>
+
+      <p class="text-xs text-wacho-400 mt-8 leading-relaxed">
+        Este sitio está protegido por reCAPTCHA y se aplican la
+        <a
+          class="underline"
+          href="https://policies.google.com/privacy"
+          >Política de Privacidad</a
+        >
+        y los
+        <a class="underline" href="https://policies.google.com/terms"
+          >Términos de Servicio</a
+        >
+        de Google.
+      </p>
+    </main>
+
+    <script src="/auth.js"></script>
+  </body>
+</html>
